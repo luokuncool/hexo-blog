@@ -14,9 +14,10 @@ NodeJS开发的应用，在用node /path/to/app.js启动起来以后可以正常
 yum install supervisor
 #启动
 service supervisord start
-```    
+```
 
 编辑/etc/supervisord.conf 在最底部加入 
+
 ```
 [program:app]
 command = node /path/to/app/index.js 
@@ -44,7 +45,7 @@ stderr_logfile = /var/log/supervisor/app_err.log
         ProxyPassReverse http://127.0.0.1:2368/
     </Location>
 </VirtualHost>
-```    
+```
 
 3、最后分别启动重启下supervisord和httpd服务
 ```bash
