@@ -1,6 +1,6 @@
 ---
 layout: default
-title: about me
+title: 关于我
 ---
 
 作为一名半路出家的程序猿，小猴子以前在工作中遇到过很多问题，当时各种google各种百度查资料，最终问题解决了。    
