@@ -6,7 +6,7 @@ tags:   NodeJS
 ---
 
 前些天发现可以用supervisor让NodeJS应用后台运行，于是记录到 
-[[部署NodeJS Web应用](http://www.luokuncool.com/bu-shu-nodejsying-yong/)] 这篇博文里面了。   
+[[部署NodeJS Web应用](/2016/11/21/bu-shu-nodejsying-yong/)] 这篇博文里面了。   
 今天发现用 [[forever](https://github.com/foreverjs/forever)] 也能实现，方法如下：  
 ```bash
 #安装forever
