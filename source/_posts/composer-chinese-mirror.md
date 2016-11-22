@@ -3,8 +3,8 @@ layout: post
 title:  "composer 中国镜像"
 date:   2016-11-21 15:16:34 +0800
 tags:
-  - php 
-  - composer
+  - PHP
+  - Composer
 ---
 
 打开命令行输入如下命令  

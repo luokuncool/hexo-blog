@@ -3,8 +3,8 @@ layout: post
 title:  "IIS伪静态配置"
 date:   2016-11-21 11:00:34 +0800
 tags:
-  - iis
-  - apache
+  - IIS
+  - Apache
 ---
 
 把所有非静态文件请求都交给index.php处理，规则如下：

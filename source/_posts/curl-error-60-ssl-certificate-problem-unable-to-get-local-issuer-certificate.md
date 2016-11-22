@@ -3,8 +3,8 @@ layout: post
 title:  "cURL error 60: SSL certificate problem: unable to get local issuer certificate"
 date:   2016-11-21 21:50:34 +0800
 tags:
-  - php
-  - symfony
+  - PHP
+  - Symfony
 ---
 
 执行`symfony demo`的时候得到错误信息`cURL error 60: SSL certificate problem: unable to get local issuer certificate`  

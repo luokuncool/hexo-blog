@@ -2,7 +2,7 @@
 layout: post
 title:  "让NodeJS应用以守护进程运行"
 date:   2016-11-21 14:38:34 +0800
-tags: nodejs
+tags:   NodeJS
 ---
 
 前些天发现可以用supervisor让NodeJS应用后台运行，于是记录到 

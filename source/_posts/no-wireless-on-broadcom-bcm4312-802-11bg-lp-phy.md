@@ -2,7 +2,7 @@
 layout: post
 title:  "联想g450 ubuntu无法上wifi"
 date:   2016-11-21 21:50:34 +0800
-tags: linux
+tags:   Linux
 ---
 Broadcom BCM4312 802.11b/g LP-PHY  
 You only need the missing firmware:

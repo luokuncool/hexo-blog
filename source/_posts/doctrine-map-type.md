@@ -3,8 +3,8 @@ layout: post
 title:  "Doctrine数据类型映射关系"
 date:   2016-11-21 09:59:34 +0800
 tags:
-  - php
-  - doctrine
+  - PHP
+  - Doctrine
 ---
 
 

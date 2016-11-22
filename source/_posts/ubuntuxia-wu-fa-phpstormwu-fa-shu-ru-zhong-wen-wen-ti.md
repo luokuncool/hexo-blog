@@ -2,7 +2,7 @@
 layout: post
 title:  "ubuntu下无法phpstorm无法输入中文问题"
 date:   2016-11-21 21:50:34 +0800
-tags: phpstrom
+tags:   PHPStorm
 ---
 
 首先在`~/.xinitrc`里面加入以下代码：

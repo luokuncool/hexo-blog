@@ -3,8 +3,9 @@ layout: post
 title:  "CentOS下php安装mcrypt扩展"
 date:   2016-11-21 17:36:34 +0800
 tags: 
-  - linux 
-  - centos
+  - Linux 
+  - CentOS
+  - PHP
 ---
 
 

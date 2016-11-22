@@ -2,7 +2,7 @@
 layout: post
 title:  "MySQL自定义函数"
 date:   2016-11-21 16:15:34 +0800
-tags: mysql
+tags:   Mysql
 ---
 
 ```mysql

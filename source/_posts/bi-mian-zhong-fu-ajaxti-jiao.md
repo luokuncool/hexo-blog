@@ -2,7 +2,7 @@
 layout: post
 title:  "避免重复Ajax提交"
 date:   2016-11-21 00:26:34 +0800
-tags: javascript
+tags: Javascript
 ---
 
 之前在做网站的时候，采用如下代码进行ajax提交，在访客点击的时候请求如果没有及时得到服务器的响应，会尝试反复点击造成重复提交

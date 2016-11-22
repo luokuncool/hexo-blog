@@ -3,8 +3,8 @@ layout: post
 title:  "Symfony创建非共享服务"
 date:   2016-11-21 21:50:34 +0800
 tags:
-  - php
-  - symfony
+  - PHP
+  - Symfony
 ---
 
 在syfmony服务容器中，所有的服务默认都是共享的。  

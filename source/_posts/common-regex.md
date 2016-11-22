@@ -2,7 +2,7 @@
 layout: post
 title:  "常用正则表达式"
 date:   2016-11-21 09:44:34 +0800
-tags: regex
+tags:   Regex
 ---
 
 * 匹配汉字 `/^[\x{4e00}-\x{9fa5}].+$/u`  

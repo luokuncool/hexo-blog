@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "php用curl上传文件"
-date:   2016-11-21 22:55:34 +0800rl
+date:   2016-11-21 22:55:34 +0800
 tags:
-  - php
-  - curl
+  - PHP
+  - Curl
 ---
 
 这两天写一个接口需要接收curl传过来的文件，测试的时候接受端代码如下：

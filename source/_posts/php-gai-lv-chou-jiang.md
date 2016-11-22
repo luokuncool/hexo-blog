@@ -2,7 +2,7 @@
 layout: post
 title:  "php概率抽奖算法"
 date:   2016-11-21 11:54:34 +0800
-tags: php
+tags:   PHP
 ---
 
 ```php

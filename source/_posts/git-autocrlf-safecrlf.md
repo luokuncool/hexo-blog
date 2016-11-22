@@ -2,7 +2,7 @@
 layout: post
 title:  "Git中的AutoCRLF与SafeCRLF"
 date:   2016-11-21 09:18:34 +0800
-tags: git
+tags:   Git
 ---
 
 ### 一、AutoCRLF

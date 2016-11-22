@@ -2,7 +2,7 @@
 layout: post
 title:  "JS中switch中的比较方式"
 date:   2016-11-21 13:48:34 +0800
-tags: javascript
+tags:   Javascript
 ---
 
 这里有一段代码: 

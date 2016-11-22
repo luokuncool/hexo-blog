@@ -3,8 +3,8 @@ layout: post
 title:  "windows下php启用curl扩展"
 date:   2016-11-21 16:28:34 +0800
 tags: 
-  - php
-  - curl
+  - PHP
+  - Curl
 ---
 
 今天用apache跑php的时候发现没有curl扩展  

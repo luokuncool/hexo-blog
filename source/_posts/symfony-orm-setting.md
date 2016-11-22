@@ -3,8 +3,8 @@ layout: post
 title:  "Symfony ORM 相关配置"
 date:   2016-11-21 22:32:34 +0800
 tags:
-  - php
-  - symfony
+  - PHP
+  - Symfony
 ---
 
 

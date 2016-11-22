@@ -3,8 +3,8 @@ layout: post
 title:  "CentOS下打开关闭80端口"
 date:   2016-11-21 23:29:34 +0800
 tags: 
-  - linux 
-  - centos
+  - Linux 
+  - CentOS
 ---
 
 1、打开端口  

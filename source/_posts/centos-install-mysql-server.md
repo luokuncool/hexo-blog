@@ -3,8 +3,8 @@ layout: post
 title:  "centos下安装mysql"
 date:   2015-08-05 15:05:34 +0800
 tags: 
-  - linux
-  - mysql
+  - Linux
+  - MySQL
 ---
 
 * MySQL的编译安装会花费较长的时间，所以我喜欢采用了懒人方法。  

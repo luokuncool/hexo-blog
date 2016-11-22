@@ -3,8 +3,9 @@ layout: post
 title:  "开发symfony应用必备的phpstorm插件"
 date:   2016-11-21 21:50:34 +0800
 tags:
-  - php
-  - symfony
+  - PHP
+  - Symfony
+  - PHPStorm
 ---
 
 # Symfony Plugin  
