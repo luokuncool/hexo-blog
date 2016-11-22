@@ -2,7 +2,7 @@
 layout:  post
 title:   "部署NodeJS Web应用"
 date:    2016-11-21 23:29:34 +0800
-tags:    nodejs
+tags:    NodeJS
 ---
 
 以下所说的环境都是在CentOS下，并且已经安装好NodeJs以及Apache.  
