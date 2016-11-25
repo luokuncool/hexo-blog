@@ -14,11 +14,13 @@ yum install -y mysql-server
 ```
 
 * 安装完成后启动
+
 ```bash
 service mysqld start
 ```
 
 * 登陆到mysql，修改密码, 安装完成后是没有密码的
+
 ```
 mysql -uroot -p
 update mysql.user set password=password('root');
@@ -26,6 +28,7 @@ flush privileges;
 ```
 
 * 退出以后就可以用新的密码登陆了
+
 ```bash
 mysql -uroot -proot
 ```
