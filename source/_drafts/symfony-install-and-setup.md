@@ -96,3 +96,20 @@ $ composer create-project symfony/framework-standard-edition my_project_name "2.
 
 > 如果你的网络比较慢的话，你可能会以为Composer没有在工作。如果你是这样的，添加`-vvv`到以上命令来展示Composer正在做的详情。
 
+# 运行Symfony应用
+
+开发阶段Symfony借助php内部的web服务器(自php5.4开始支持)来运行应用。因此，运行Symfony应用只需要进入项目目录然后执行这个命令：
+
+```bash
+$ cd my_project_name/
+$ php bin/console server:run
+```
+
+然后，打开你的浏览器访问`http://localhost:8000`地址看到Symfony的欢迎页面：
+
+![](/images/20161130/welcome.png)
+
+如果你没有看到欢迎页而是看到了空白页或者错误页，
+
+
+
