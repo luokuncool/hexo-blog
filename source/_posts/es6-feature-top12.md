@@ -9,7 +9,7 @@ date: 2016-11-23 11:49:39
 
 过去几年 JavaScript 发生了很大的变化。下面的 12 个新功能现在就可以用起来了。
 
-# JavaScript 历史
+## JavaScript 历史
 
 新补充的语言叫 ECMAScript 6，也叫 ES6 或 ES2015+。  
 
@@ -17,7 +17,7 @@ JavaScript 自 1995 年面世以来，一直在缓慢地改进着。每隔几年
 
 ![](/images/20161123/history-javascript-evolution-es6.png)
 
-# JavaScript 进化史
+## JavaScript 进化史
 
 ES3 与 ES5 之间隔了 10 年，而ES5 与 ES6 之间隔了 6 年。改进的新模式是每年都渐进式地做一些小改动，而不是像 ES6 一样一次性地进行大量的更改。  
 
@@ -34,7 +34,7 @@ Chrome、MS Edge、Firefox、Safari、Node和其它很多环境都已经嵌入�
 
 来开始学习 ECMAScript 6 吧！
 
-# ES6 核心功能
+## ES6 核心功能
 
 可以在浏览器控制台上尝试下面的代码。  
 
@@ -42,7 +42,7 @@ Chrome、MS Edge、Firefox、Safari、Node和其它很多环境都已经嵌入�
 
 所以不要照单全收，试试每个 ES5 和 ES6 示例。我们开始吧。
 
-## 块级作用域变量
+### 块级作用域变量
 
 在 ES6 中，我们使用 let/const，而非 var 来声明变量。  
 
@@ -107,7 +107,7 @@ test(true); // inner
 > * let 是块作用域的，不可以在声明前使用。
 > * "Temporal dead zone"是块开始直到变量被声明的这段区域。
 
-## IIFE
+### IIFE
 
 在介绍 IIFE 之前，我们来看个例子：  
 
@@ -144,7 +144,7 @@ ES6
 console.log(private3); // Uncaught ReferenceError
 ```
 
-## Const
+### Const
 
 如果不希望变量的值再改变，可以使用 const。  
 
@@ -157,7 +157,7 @@ console.log(private3); // Uncaught ReferenceError
 > 
 > 如果必须重新指定引用，可以用 let 代替 const。
 
-## 文本模板
+### 文本模板
 
 遇到文本模板时，不必再用嵌套连接了。比如：  
 
@@ -179,7 +179,7 @@ const last = 'Mejia';
 console.log(`Your name is ${first} ${last}.`);
 ```
 
-## 多行字符串
+### 多行字符串
 
 不必像这样再连接 + n 字符串了：  
 
@@ -214,11 +214,11 @@ console.log(template);
 ```
 两段代码会得到完全相同的结果。  
 
-## 解构赋值
+### 解构赋值
 
 ES6 解构非常简明并且好用。看看下面的例子：  
 
-### 获取数组元素
+#### 获取数组元素
 
 ```javascript
 //ES5
@@ -239,7 +239,7 @@ const [first, ,third] = array;
 console.log(first, third); // 1 3
 ```
 
-### 调换值
+#### 调换值
 
 ```javascript
 //ES5
@@ -263,7 +263,7 @@ let b = 2;
 console.log(a, b); // 2 1
 ```
 
-### 返回多个值的解构
+#### 返回多个值的解构
 
 ```javascript
 ES5
@@ -306,7 +306,7 @@ console.log(left, bottom); // 1 4
 
 注意：第3行用到了一些其它的 ES6 功能。可以将 { left: left } 简化为 { left }。看看和 ES5 的版本相比，现在多简洁啊~很酷不是吗？  
 
-### 参数匹配解构
+#### 参数匹配解构
 
 ```javascript
 //ES5
@@ -332,7 +332,7 @@ function getFullName({ firstName, lastName }) {
 console.log(getFullName(user)); // Adrian Mejia
 ```
 
-### 深度匹配
+#### 深度匹配
 
 ```javascript
 ES5
@@ -367,7 +367,7 @@ console.log(displayColor, keyboardLayout); // red querty
 > * 使用数组解构获取元素或调换变量，这样就不用创建临时引用了。
 > * 对于多返回值的情况，不要用数组解构，用对象解构。
 
-## 类和对象
+### 类和对象
 
 ES6 用“类”替代“构造函数”。 
 
@@ -415,7 +415,7 @@ animal.speak(); // animal makes a noise.
 > * 最好使用 class 语法，避免直接操作 prototype。原因是这样代码更加简明易懂。
 > * 避免出现空的构造器。如果没有指明，类会有默认的构造器的。
 
-### 继承
+#### 继承
 
 基于前面的 Animal 类，现在想要拓展 Animal，定义一个 Lion 类。  
 
@@ -470,7 +470,7 @@ lion.speak(); // Simba makes a noise.
 > 
 > * 使用内置的 extends 实现继承。
 
-## 原生 Promise
+### 原生 Promise
 
 用 promise 替代回调地狱
 
@@ -515,7 +515,7 @@ printAfterTimeout('Hello ', 2e3).then((result) => {
 
 promise 中可以用 then 在某个函数完成后执行新的代码，而不必再嵌套函数。
 
-## 箭头函数
+### 箭头函数
 
 ES6 没有移除函数表达式，但是新增了箭头函数。  
 
@@ -535,7 +535,7 @@ $('.input').on('change',function(event){
 
 在函数内，需要用临时变量指向 this 或者使用 bind 绑定。ES6 中可以使用箭头函数。  
 
-## For…of
+### For…of
 
 最开始用 for ，然后使用 forEach，而现在可以用 for…of：  
 
@@ -551,7 +551,7 @@ const messages = ids.map(value => `ID is ${value}`);
 
 ES6 的 for…of 也可以用来迭代。
 
-## 默认参数
+### 默认参数
 
 之前需要检测变量是否定义了，而现在可以指定 default parameters 的值。或许你之前像下面这样写过？  
 
@@ -611,7 +611,7 @@ point() // 0 -1 true
 
 现在当检测 undefined 值时就符合我们的要求了。
 
-## 展开操作符
+### 展开操作符
 
 之前使用 arguments，而现在可以用展开操作符。  
 
@@ -684,7 +684,7 @@ const array3 = [false, true, null, undefined];
 console.log([...array1, ...array2, ...array3]);
 ```
 
-# 总结
+## 总结
 
 JavaScript 已经发生了许多改变。本文包含了大部分的核心功能，这些是每个 JavaScript 程序员都应该知道的。本文还涉及了一些最佳实践，可以使你的代码更加简明易懂。  
 

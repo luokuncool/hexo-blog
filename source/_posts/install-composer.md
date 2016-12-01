@@ -8,7 +8,7 @@ date: 2016-12-01 17:30:09
 
 > 原文地址：[http://docs.phpcomposer.com/00-intro.html#System-Requirements](http://docs.phpcomposer.com/00-intro.html#System-Requirements)
 
-# 系统要求
+## 系统要求
 
 运行 Composer 需要 PHP 5.3.2+ 以上版本。一些敏感的 PHP 设置和编译标志也是必须的，但对于任何不兼容项安装程序都会抛出警告。
 
@@ -16,11 +16,11 @@ date: 2016-12-01 17:30:09
 
 Composer 是多平台的，我们努力使它在 Windows 、 Linux 以及 OSX 平台上运行的同样出色。
 
-# 安装 - *nix
+## 安装 - *nix
 
-## 下载 Composer 的可执行文件
+### 下载 Composer 的可执行文件
 
-### 局部安装
+#### 局部安装
 
 要真正获取 Composer，我们需要做两件事。首先安装 Composer （同样的，这意味着它将下载到你的项目中）：
 
@@ -42,7 +42,7 @@ php -r "readfile('https://getcomposer.org/installer');" | php
 curl -sS https://getcomposer.org/installer | php -- --install-dir=bin
 ```
 
-### 全局安装
+#### 全局安装
 
 你可以将此文件放在任何地方。如果你把它放在系统的 PATH 目录中，你就能在全局访问它。 在类Unix系统中，你甚至可以在使用时不加`php`前缀。
 
@@ -57,7 +57,7 @@ mv composer.phar /usr/local/bin/composer
 
 现在只需要运行 `composer` 命令就可以使用 Composer 而不需要输入 `php composer.phar`。
 
-### 全局安装 (on OSX via homebrew)
+#### 全局安装 (on OSX via homebrew)
 
 Composer 是 homebrew-php 项目的一部分。
 
@@ -69,15 +69,15 @@ brew install php55-intl
 brew install josegonzalez/php/composer
 ```
 
-# 安装 - Windows
+## 安装 - Windows
 
-## 使用安装程序
+### 使用安装程序
 
 这是将 Composer 安装在你机器上的最简单的方法。
 
 下载并且运行 [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe)，它将安装最新版本的 Composer ，并设置好系统的环境变量，因此你可以在任何目录下直接使用 `composer` 命令。
 
-## 手动安装
+### 手动安装
 
 设置系统的环境变量 `PATH` 并运行安装命令下载 `composer.phar` 文件：
 

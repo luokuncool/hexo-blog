@@ -8,7 +8,7 @@ tags:
   - PHPStorm
 ---
 
-# Symfony Plugin  
+## Symfony Plugin  
 
 打开phpstorm的插件管理界面搜索{{config.root}}`symfony plugin`，然后点击安装安装完成后重启phpstorm  
 
@@ -18,7 +18,7 @@ tags:
 
 ![](/images/20161117/gif2.gif)
 
-# php annotations  
+## php annotations  
 
 如上面一样搜索到`php annotations`，然后安装后重启phpstorm, 神奇的提示又有了，并且还是在注释里面哦
 

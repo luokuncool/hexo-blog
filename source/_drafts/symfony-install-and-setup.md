@@ -11,7 +11,7 @@ tags:
 
 > 如果你喜欢视频教程的话，[戳这里](http://knpuniversity.com/screencast/symfony)
 
-# 创建Symfony应用
+## 创建Symfony应用
 
 Symfony提供了一个叫`Symfony Installer`的专门应用来简化Symfony应用的创建。这个安装程序兼容PHP5.4，只需要在你的系统上安装一次就可以了。
 
@@ -53,7 +53,7 @@ $ symfony new my_project_name
 
 > 如果安装程序不能正常工作或者没有输出任何东西，请确认你是否安装并启用了[Phar extension](http://php.net/manual/zh/intro.phar.php)
 
-# 用指定的symfony版本来创建项目
+## 用指定的symfony版本来创建项目
 
 如果你的项目需要基于指定的symfony版本来创建，请使用`new`命令的第二个可选参数：
 
@@ -78,7 +78,7 @@ $ symfony new my_project_name lts
 
 > 阅读[Symfony发布过程](http://symfony.com/doc/current/contributing/community/releases.html)来更好的理解为什么会有好几个Symfony版本，以及该选择哪个版本用到你的项目中
 
-# 使用Composer创建Symfony项目
+## 使用Composer创建Symfony项目
 
 如果你使用的是PHP5.3或者因为其他任何原因不能够使用`Symfony instaler`，你可以使用[Composer](http://docs.phpcomposer.com/)来创建Symfony项目，`composer`是一个被好多时髦php应用所使用的依赖管理器。
 
@@ -96,7 +96,7 @@ $ composer create-project symfony/framework-standard-edition my_project_name "2.
 
 > 如果你的网络比较慢的话，你可能会以为Composer没有在工作。如果你是这样的，添加`-vvv`到以上命令来展示Composer正在做的详情。
 
-# 运行Symfony应用
+## 运行Symfony应用
 
 开发阶段Symfony借助php内部的web服务器(自php5.4开始支持)来运行应用。因此，运行Symfony应用只需要进入项目目录然后执行这个命令：
 
