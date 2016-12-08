@@ -176,6 +176,7 @@ class SuperModuleFactory
 这时候，超人 创建之初就可以使用这个工厂！
 
 ```php
+<?php
 class Superman
 {
     protected $power;
