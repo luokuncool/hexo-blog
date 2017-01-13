@@ -5,7 +5,7 @@ tags:
   - Symfony
 ---
 
-> 原文地址：[http://symfony.com/doc/current/setup.html](http://symfony.com/doc/current/setup.html)
+> 英文原文地址：http://symfony.com/doc/current/setup.html
 
 这篇文章介绍怎样用不同的方法来安装Symfony，以及解决在安装过程中出现的最基本的问题。
 
