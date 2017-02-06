@@ -15,9 +15,9 @@ tags:
 
 但是当我刷新的时候页面还是停留在我点击链接后的那个界面，这时候我才发现地址栏的地址其实已经改变了，并且刷新的时候响应内容是一个完整的html文档。
 
+那么这个效果是怎么实现的呢？其实最核心的就是`history.pushState`。
 
-
-![](/images/20170203125468.gif)
+![](http://www.luokuncool.pw/images/20170203125468.gif)
 
 https://github.com/luokuncool/hexo-theme-next/blob/master/layout/_scripts/pjax.swig
 
