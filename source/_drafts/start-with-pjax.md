@@ -72,4 +72,3 @@ abstract class BaseController
 | __Mike__     |  32 | [Mike](http://mike.me)          |
 
 
-D:\dev\php-5.6.19-Win32-VC11-x86\php.exe D:\www\di-demo\bin\console
