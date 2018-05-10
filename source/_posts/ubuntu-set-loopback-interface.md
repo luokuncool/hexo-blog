@@ -98,7 +98,7 @@ iface lo inet loopback
 auto lo lo:0
 iface lo inet loopback
 
-iface lo:10 inet static
-        address 192.168.10.11
-        netmask 255.255.255.255
+iface lo:0 inet static
+      address 192.168.10.11
+      netmask 255.255.255.255
 ```
