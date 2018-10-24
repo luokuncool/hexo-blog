@@ -19,7 +19,7 @@ date: 2017-04-18 10:23:31
 
 那么这个效果是怎么实现的呢？其实最核心的就是`history.pushState`。
 
-![](http://www.luokuncool.pw/images/20170203125468.gif)
+![](/images/20170203125468.gif)
 
 ## history.pushState介绍
 
