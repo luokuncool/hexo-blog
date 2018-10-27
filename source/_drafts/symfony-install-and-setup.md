@@ -111,5 +111,37 @@ $ php bin/console server:run
 
 如果你没有看到欢迎页而是看到了空白页或者错误页，或许是目录权限没对。
 
+## 检查Symfony应用的配置和设置
 
+Symfony安装程序可以检测你的系统能否运行Symfony应用。但是，php的命令行运行的配置有可能和php的web运行配置不一样。为此，Symfony提供了一个配置检测的界面。访问下面的链接来检测你的配置并且在继续前修复所有问题。
 
+```
+http://localhost:8000/config.php
+```
+
+## 修复权限问题
+
+如果你有任何文件权限错误或者看到白屏，可以阅读[设置或修复文件权限问题](https://symfony.com/doc/3.4/setup/file_permissions.html)获取更多信息
+
+## 更新Symfony应用
+
+这点的前提是你已经创建了一个完整功能的symfony应用。每个symfony应用都会依赖一些第三方的类库。这些类库存储在 `vendor` 目录下面并由composer来管理。  
+
+经常更新这些类库是避免bug和安全漏洞的好方法。执行`update` Composer命令来立即更新他们（这个操作花几分钟取决于你项目的复杂程度）：
+
+```bash
+$ cd my_project_name/
+$ composer update
+```
+
+> Symfony还提供了一个命令来检测你的项目是否存在已知的安全漏洞：
+> `$ php bin/console security:check`
+> 经常执行这个命令能尽快的更新或替换受损坏的依赖包。
+
+## 安装symfony例子或其它分发包
+
+你已经下载了[Symfony Standard Edition](https://github.com/symfony/symfony-standard)：用来开发symfony应用的默认项目。你将在整个文档中使用此项目来构建您的应用程序。
+
+Symfony还提供了一些其它项目和初始架构供你使用：
+
+[The Symfony Demo Application](https://github.com/symfony/demo)
