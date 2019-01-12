@@ -7,6 +7,7 @@ date: 2019-01-11 18:10:50
 
 
 ## 位运算符 
+---
 
 如果你正准备看下去，你应该先搞懂各个位运算符的作用。 以下是官网的一个介绍。
 
@@ -22,56 +23,57 @@ date: 2019-01-11 18:10:50
 详情请点击【[这里](http://php.net/manual/zh/language.operators.bitwise.php)】了解。
 
 ## 平常开发需要用位运算吗？
+---
+> 注：以下所有说到第几位都是从0位开始数，所有2进制都是抹去了高位为0的位只保留了用于对比的那几位。
 
 之前我一直以为对我平常开发来说我并不需要用到位运算符，我觉得这东西需要做很复杂的操作才会用到。  
 但是在我用了很多次`json_encode($array, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT)`这个函数以后，我开始好奇为什么只用一个参数就可以控制json字符串输出的两个设置，既能格式化输出还能不把内容编码成`\uXXXX`可以更直观的看到中文是什么内容。
 
 于是我分别打印了`JSON_UNESCAPED_UNICODE`和`JSON_PRETTY_PRINT`的值，他们分别是`256`和`128`，开始十进制开不出个所以然。于是我对比了他们的二级制值。
 
-| JSON_UNESCAPED_UNICODE  | JSON_PRETTY_PRINT   |  JSON_UNESCAPED_UNICODE &verbar; JSON_PRETTY_PRINT |
-| -------------           | ------------------- | ------------------------------------------------  |
-| 256                     | 128                 | 384  |
-| 0b100000000             | 0b010000000         | 0b110000000  |
+| 常量                                                      | 二进制数值              |  10进制数值   |
+| -------------------------------------------------------- | ---------------------- |------------- |
+| JSON_UNESCAPED_UNICODE                                    | 0b100000000           | 256          |
+| JSON_PRETTY_PRINT                                         | 0b010000000           | 128          |
+| JSON_UNESCAPED_UNICODE &verbar; JSON_PRETTY_PRINT         | 0b110000000           | 384          |
 
-可以看到从左往右数`256`第8位是1，而`128`第七位是1，通过按位或运算以后7位和八位都成了1。那函数内部就可以只需要判断`json_encode`的第二个参数的二级制数第8位如果是1就是`JSON_UNESCAPED_UNICODE`为真，第7位如果是1就是`JSON_PRETTY_PRINT`为真了。
+可以看到从有往左数`256`第8位是1，而`128`第七位是1，通过按位或运算以后7位和8位都成了1。那函数内部就可以只需要判断`json_encode`的第二个参数的二级制数第8位如果是1就是`JSON_UNESCAPED_UNICODE`为真，第7位如果是1就是`JSON_PRETTY_PRINT`为真了。
 
 于是我又回想了还有那个地方用了未操作符，一下又想起了这个函数`error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE)`，对比下二级制值。  
 
-| E_ALL             | E_WARNING           | E_NOTICE           |  E_ALL ^ E_WARNING ^ E_NOTICE   |
-| -------------     | ------------------- | -------------------|----------------------------     |
-| 30719             | 2                   | 8                  | 32757                           |
-| 0b111011111111111 | 0b000000000000010   | 0b000000000001000  | 0b111111111110101               |  
+| 常量                                                      | 二进制数值              |  10进制数值   |
+| -------------------------------------------------------- | ---------------------- |------------- |
+| E_ALL                                                    | 0b111011111111111      | 30719        |
+| E_WARNING                                                | 0b000000000000010      | 2            |
+| E_NOTICE                                                 | 0b000000000001000      | 8            |
+| E_ALL ^ E_WARNING ^ E_NOTICE                             | 0b111111111110101      | 32757        |
 
-可以看到`E_ALL`有一位是0，因为它是除`E_STRICT`外的所有错误和警告信息。竖着直观的看下，运算以后第1位和第3位变为0了（从右往左数第0位开始），也就是说`E_WARNING`、`E_NOTICE`被排除掉了。
-
-```
-0b111011111111111 //除`E_STRICT`外的所有错误和警告信息
-0b000000000000010 //警告
-0b000000000001000 //提示
-0b111111111110101 //除`E_STRICT`、`E_WARNING`、`E_NOTICE`外的所有错误和警告信息
-```
-
+可以看到`E_ALL`有一位是0，因为它是除`E_STRICT`外的所有错误和警告信息。竖着直观的看下，运算以后第1位和第3位变为0了，也就是说`E_WARNING`、`E_NOTICE`被排除掉了。
 
 ## 很酷，一定要用！
+---
 
-到此忽然觉得这玩意儿太酷了，为什么试想一下。比方说我现在要实现一个函数来初始化我家里的灯。
+到此忽然觉得这玩意儿太酷了，试想一下。比方说我现在要实现一个函数来初始化我家里的灯的开关状态。
 
 ### 错误示范
+
+控制灯还不简单嘛，声明一个函数，一个参数控制一个开关。
 
 ```php
 <?php
 function showLight($masterRoom = 0, $livingRoom = 0, $diningRoom = 0, $secondLie = 0, $kitchen = 0) {
-        echo '主卧', "\t";
-        echo '客厅', "\t";
-        echo '餐厅', "\t";
-        echo '次卧', "\t";
-        echo '厨房', "\t", PHP_EOL;
-        
-        echo $masterRoom, "\t";
-        echo $livingRoom, "\t";
-        echo $diningRoom, "\t";
-        echo $secondLie, "\t";
-        echo $kitchen, "\t";
+    echo '主卧', "\t";
+    echo '客厅', "\t";
+    echo '餐厅', "\t";
+    echo '次卧', "\t";
+    echo '厨房', "\t", PHP_EOL;
+
+    echo $masterRoom, "\t";
+    echo $livingRoom, "\t";
+    echo $diningRoom, "\t";
+    echo $secondLie, "\t";
+    echo $kitchen, "\t";
+    echo PHP_EOL;
 }
 
 //只开主卧灯
@@ -81,7 +83,41 @@ showLight(0, 0, 0, 0, 1);
 //开所有灯
 showLight(1, 1, 1, 1, 1);
 ```
-可以看到我当我需要控制厨房灯的时候却要传其它四个参数，太不科学了。
+可以看到我当我需要控制厨房灯的时候却要传其它四个参数，太不科学了，要是能要开哪个就传那个参数就好了。  
+用哪个传那个参数？用数组参数不就行了？
+
+```php
+<?php
+function showLight(array $control)
+{
+    $control = array_merge([
+        'masterRoom' => 0,
+        'livingRoom' => 0,
+        'diningRoom' => 0,
+        'secondLie'  => 0,
+        'kitchen'    => 0,
+    ], $control);
+
+    echo '主卧', "\t";
+    echo '客厅', "\t";
+    echo '餐厅', "\t";
+    echo '次卧', "\t";
+    echo '厨房', "\t", PHP_EOL;
+
+    echo $control['masterRoom'], "\t";
+    echo $control['livingRoom'], "\t";
+    echo $control['diningRoom'], "\t";
+    echo $control['secondLie'], "\t";
+    echo $control['kitchen'], "\t";
+    echo PHP_EOL;
+}
+
+//只开主卧和厨房
+showLight(['masterRoom' => 1, 'kitchen' => 1]);
+```
+嗯，选择开启了。那我要排除厨房呢？
+`showLight(['masterRoom' => 1, 'kitchen' => 0, 'livingRoom' => 1, 'diningRoom' => 1, 'secondLie` => 1])`，又得输入全部参数了。
+我现在还只有5盏灯，要是我是要控制一栋楼的所有灯只排除某一盏灯呢？我去......
 
 ### 再来看看用了位操作以后
 
@@ -130,50 +166,99 @@ class LightControl
         echo self::getOption($this->options, self::KITCHEN);
     }
 
-    //获取从右往左索引位置的值
+    //获取指定灯的开关状态
     private static function getOption($options, $option)
     {
-        $index = strlen(base_convert($option, 10, 2)) - 1;
-        return ($options & (1 << $index)) >> $index;
+        return intval(($options & $option) > 0);
     }
 }
 //LightControl.php
 ```
+我们来看看`getOption`这个方法。因为我们用了五个位来表示每盏灯的开关状态。
+可以看到从右边左数`0-4`位分别是1的是`MASTER_ROOM`主卧灯、`LIVING_ROOM`客厅、`DINING_ROOM`餐厅、`SECOND_LIE`次卧、`KITCHEN`厨房。
+所以我们只需要一个方法来获取`$options`指定位上是否为1就可以确定开关的状态了。
+因为`$option`一定只有个位上是1其它的都是0，所以`$options`和`$option`按位与以后如果他们的值大于0的话，它们肯定有一个相同的位都为1，也就是`$option`的那个位上。
 
+举个例子：
+```
+0b11111 $options 5个位上都是1
+0b10000 KITCHEN
+0b10000 $options & KITCHEN
+```
+可以看到`0b10000`是一定大于0的。
+
+* 全部关闭
 
 ```php
 <?php
-require __DIR__ . '/LightControl.php';
-
 $lightControl = new LightControl();
-//全关
 $lightControl->showOptions();
-echo PHP_EOL;
-
-//全开
-$lightControl->setOptions(LightControl::TURN_ON_ALL);
-$lightControl->showOptions();
-echo PHP_EOL;
-
-//排除厨房
-$lightControl->setOptions(LightControl::TURN_ON_ALL ^ LightControl::KITCHEN);
-$lightControl->showOptions();
-echo PHP_EOL;
-//echo base_convert(LightControl::TURN_ON_ALL ^ LightControl::KITCHEN, 10 ,2), PHP_EOL;
-// LightControl::TURN_ON_ALL => '11111'
-// LightControl::KITCHEN     => '10000'
-// result                    => '01111'
-
-//客厅和餐厅
-$lightControl->setOptions(LightControl::KITCHEN | LightControl::DINING_ROOM);
-$lightControl->showOptions();
-echo PHP_EOL;
-//echo base_convert(LightControl::KITCHEN | LightControl::DINING_ROOM, 10 ,2), PHP_EOL;
-// LightControl::KITCHEN     => '10000'
-// LightControl::DINING_ROOM => '00100'
-// result                    => '10100'
-
-//test.php
 ```
+
+输出结果：
+```
+主卧	客厅	餐厅	次卧	厨房	
+0	0	0	0	0
+```
+
+* 全部打开
+
+```php
+<?php
+$lightControl = new LightControl(LightControl::TURN_ON_ALL);
+$lightControl->showOptions();
+```
+
+输出结果：
+
+```
+主卧	客厅	餐厅	次卧	厨房	
+1	1	1	1	1
+```
+
+* 排除厨房
+
+```php
+<?php
+$lightControl = new LightControl(LightControl::TURN_ON_ALL ^ LightControl::KITCHEN);
+$lightControl->showOptions();
+```
+
+输出结果：
+```
+主卧	客厅	餐厅	次卧	厨房	
+1	1	1	1	0
+```
+
+| 常量                                               | 二进制数值              |
+| ------------------------------------------------- | ---------------------- |
+| LightControl::TURN_ON_ALL                         | 0b11111                |
+| LightControl::KITCHEN                             | 0b10000                |
+| LightControl::TURN_ON_ALL ^ LightControl::KITCHEN | 0b01111                |
+
+`LightControl::TURN_ON_ALL ^ LightControl::KITCHEN`的值为`0b01111`除了第4位（也就是厨房灯）其它都是1，成功排除厨房。
+
+* 客厅和餐厅
+
+```php
+<?php
+$lightControl = new LightControl(LightControl::KITCHEN | LightControl::DINING_ROOM);
+$lightControl->showOptions();
+```
+
+输出结果：
+```
+主卧	客厅	餐厅	次卧	厨房	
+1	1	1	1	0
+```
+
+| 常量                                                      | 二进制数值              |
+| -------------------------------------------------------- | ---------------------- |
+| LightControl::KITCHEN                                    | 0b10000                |
+| LightControl::DINING_ROOM                                | 0b00100                |
+| LightControl::KITCHEN &verbar; LightControl::DINING_ROOM | 0b10100                |
+
+`LightControl::KITCHEN &verbar; LightControl::DINING_ROOM`的值为`0b10100`，第2、4位（也就是厨房灯、客厅灯）都是1，选择打开了厨房灯、客厅灯。
+
 
 可以看到用位操作以后可以灵活的控制灯了，如果要开的灯太多可以用排除法，要开的少可以用选择法。
