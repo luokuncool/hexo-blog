@@ -238,7 +238,7 @@ $lightControl->showOptions();
 
 `LightControl::TURN_ON_ALL ^ LightControl::KITCHEN`的值为`0b01111`除了第4位（也就是厨房灯）其它都是1，成功排除厨房。
 
-* 客厅和餐厅
+* 厨房和餐厅
 
 ```php
 <?php
@@ -249,7 +249,7 @@ $lightControl->showOptions();
 输出结果：
 ```
 主卧	客厅	餐厅	次卧	厨房	
-1	1	1	1	0
+0	0	1	0	1
 ```
 
 | 常量                                                      | 二进制数值              |
