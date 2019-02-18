@@ -259,7 +259,7 @@ $lightControl->showOptions();
 | LightControl::DINING_ROOM                                | 0b00100                |
 | LightControl::KITCHEN &#124; LightControl::DINING_ROOM | 0b10100                |
 
-`LightControl::KITCHEN &#124; LightControl::DINING_ROOM`的值为`0b10100`，第2、4位（也就是厨房灯、客厅灯）都是1，选择打开了厨房灯、客厅灯。
+`LightControl::KITCHEN | LightControl::DINING_ROOM`的值为`0b10100`，第2、4位（也就是厨房灯、客厅灯）都是1，选择打开了厨房灯、客厅灯。
 
 
 可以看到用位操作以后可以灵活的控制灯了，如果要开的灯太多可以用排除法，要开的少可以用选择法。
